@@ -14,3 +14,17 @@
 $router->get('/', function () use ($router) {
     return view('index');
 });
+
+$router->group(['preix' => 'api'], function () use ($router) {
+	$router->get('mountains', ['uses' => 'MountainController@showAllMountains']);
+
+	$router->get('mountains/{id}', ['uses' => 'MountainController@showOneMountain']);
+
+	$router->get('mountains/comapare/{id1}/{id2}' ['uses'] => 'MountainController@compareMountains']);
+
+	$router->post('mountains' ['uses' => 'MountainsController@create'])
+
+	$router->put('mountains/update/{$id}', ['uses' => 'MountainController@update']);
+
+	$router->delete('mountains/{id}', ['uses' => 'MountainsController@delete']);
+});
