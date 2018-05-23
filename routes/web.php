@@ -15,16 +15,18 @@ $router->get('/', function () use ($router) {
     return view('index');
 });
 
-$router->group(['preix' => 'api'], function () use ($router) {
+$router->group(['prefix' => 'api'/*, 'middleware' => 'auth'*/], function () use ($router) {
 	$router->get('mountains', ['uses' => 'MountainController@showAllMountains']);
 
 	$router->get('mountains/{id}', ['uses' => 'MountainController@showOneMountain']);
 
-	$router->get('mountains/comapare/{id1}/{id2}' ['uses'] => 'MountainController@compareMountains']);
+	$router->get('mountains/region/{id}', ['uses' => 'MountainController@showRegionMountains']);
 
-	$router->post('mountains' ['uses' => 'MountainsController@create'])
+	$router->get('mountains/comapare/{id1}/{id2}', ['uses' => 'MountainController@compareMountains']);
 
-	$router->put('mountains/update/{$id}', ['uses' => 'MountainController@update']);
+	$router->post('mountains', ['uses' => 'MountainController@create']);
 
-	$router->delete('mountains/{id}', ['uses' => 'MountainsController@delete']);
+	$router->put('mountains/{id}', ['uses' => 'MountainController@update']);
+
+	$router->delete('mountains/{id}', ['uses' => 'MountainController@delete']);
 });

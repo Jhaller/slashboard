@@ -14,7 +14,7 @@ class CreateMountainsTable extends Migration
     public function up()
     {
         Schema::create('mountains', function (Blueprint $table) {
-            $table->increments('mountain_id');
+            $table->increments('id');
             $table->string('name');
             $table->string('address');
             $table->string('city');

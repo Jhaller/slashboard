@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Author;
+use App\Mountain;
 use Illuminate\Http\Request;
 
 
@@ -25,6 +25,18 @@ class MountainController extends Controller
 		}
 
 		public function create(Request $request) {
+
+			$this->validate($request, [
+				'name' => 'required|string',
+				'address' => 'required|string',
+				'city' => 'required|string',				
+				'state' => 'nullable|string|size:2',
+				'country' => 'required|string',
+				'continent' => 'required|string|size:2',
+				'latitude' => ['required','regex:/^[-]?(([0-8]?[0-9])\.(\d+))|(90(\.0+)?)$/'],
+				'longitude' => ['required','regex:/^[-]?((((1[0-7][0-9])|([0-9]?[0-9]))\.(\d+))|180(\.0+)?)$/']
+			]);
+
 			$mountain = Mountain::create($request->all());
 
 			return response()->json($mountain, 201);
