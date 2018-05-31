@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import Mountain from '../pages/Mountain';
+import { Link, NavLink } from 'react-router-dom';
+import { login, logout, isLoggedIn } from '../utils/AuthService';
 
 class Nav extends Component {
   render() {
@@ -13,29 +13,28 @@ class Nav extends Component {
         </div>
         <ul className="nav navbar-nav">
           <li>
-            <Link to="/mountain">Mountain</Link>
+            <NavLink to="/mountain">Mountain</NavLink>
           </li>
           <li>
-            <Link to="/compare">Compare</Link>
+            <NavLink to="/compare">Compare</NavLink>
           </li>
           <li>
-            <Link to="/settings">Settings</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
+            <NavLink to="/settings">Settings</NavLink>
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
           <li>
-            <button className="btn btn-info log">Log In</button>
-          </li>
-          <li>
-            <button className="btn btn-danger log">Log Out</button>
+            {isLoggedIn() ? (
+              <button className="log" onClick={() => logout()}>
+                Log Out
+              </button>
+            ) : (
+              <button className="log" onClick={() => login()}>
+                Log In
+              </button>
+            )}
           </li>
         </ul>
-        <div>
-          <Route path="/mountain" component={Mountain} />
-        </div>
       </nav>
     );
   }

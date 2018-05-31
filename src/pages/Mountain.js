@@ -9,6 +9,7 @@ class Mountain extends Component {
 
   getMountainWeather() {
     getMountain(4).then(weather => {
+      console.log(weather);
       this.setState({ weather });
     });
   }

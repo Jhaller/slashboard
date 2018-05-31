@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3333';
+const BASE_URL = 'http://localhost:8000';
 
 export { getAllMountains, getMountain };
 
@@ -11,5 +11,8 @@ function getAllMountains() {
 
 function getMountain(mountainID) {
   const url = `${BASE_URL}/api/mountains/${mountainID}`;
-  return axios.get(url).then(response => response.data);
+  //return axios.get(url).then(response => response.data);
+  const rep = axios.get(url);
+  console.log(rep);
+  console.log('that was rep');
 }
