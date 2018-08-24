@@ -3,7 +3,7 @@ import { isLoggedIn, loginRedirect } from '../utils/AuthService';
 
 class Settings extends Component {
   render() {
-    return isLoggedIn() ? (
+    return !isLoggedIn() ? (
       loginRedirect()
     ) : (
       <div>

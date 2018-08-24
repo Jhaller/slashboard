@@ -5,13 +5,11 @@ import { login, logout, isLoggedIn } from '../utils/AuthService';
 class Nav extends Component {
   render() {
     return (
-      <nav className="navbar navbar-default">
-        <div className="navbar-header">
-          <Link className="navbar-brand" to="/">
-            SlashBoard
-          </Link>
+      <nav>
+        <div>
+          <Link to="/">SlashBoard</Link>
         </div>
-        <ul className="nav navbar-nav">
+        <ul>
           <li>
             <NavLink to="/mountain">Mountain</NavLink>
           </li>
@@ -22,7 +20,7 @@ class Nav extends Component {
             <NavLink to="/settings">Settings</NavLink>
           </li>
         </ul>
-        <ul className="nav navbar-nav navbar-right">
+        <ul>
           <li>
             {isLoggedIn() ? (
               <button className="log" onClick={() => logout()}>
