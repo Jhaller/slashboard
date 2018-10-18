@@ -12,7 +12,7 @@ class Mountain extends Model
 	* @var array
 	*/
 	protected $fillable = [
-		'name', 'address', 'city', 'state', 'country', 'continent', 'latitude', 'longitude'
+		'name', 'snow_id', 'address', 'city', 'state', 'country', 'continent', 'latitude', 'longitude'
 	];
 
 	/**

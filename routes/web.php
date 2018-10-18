@@ -18,7 +18,9 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'/*, 'middleware' => 'auth'*/], function () use ($router) {
 	$router->get('mountains', ['uses' => 'MountainController@showAllMountains']);
 
-	$router->get('mountains/{id}', ['uses' => 'MountainController@showOneMountain']);
+	$router->get('mountains/search/{query}', ['uses' => 'MountainController@searchMountains']);
+
+	$router->get('mountains/report/{id}', ['uses' => 'MountainController@showOneMountain']);
 
 	$router->get('mountains/region/{id}', ['uses' => 'MountainController@showRegionMountains']);
 

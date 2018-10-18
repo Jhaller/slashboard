@@ -9,6 +9,7 @@ class Nav extends Component {
         <div>
           <Link to="/">SlashBoard</Link>
         </div>
+
         <ul>
           <li>
             <NavLink to="/mountain">Mountain</NavLink>

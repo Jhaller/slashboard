@@ -23,6 +23,7 @@ class CreateMountainsTable extends Migration
             $table->string('continent');
             $table->decimal('latitude', 8, 6);
             $table->decimal('longitude', 9, 6);
+            $table->integer('mapId')->unique()->comment('for skimap.org');
             $table->timestamps();
         });
     }
