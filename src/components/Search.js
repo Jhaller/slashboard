@@ -23,7 +23,7 @@ class Search extends Component {
   handleClick = e => {
     this.props.onClick(e.target.dataset.value, e.target.innerText);
     this.search.value = e.target.innerText;
-    this.state.results = [];
+    this.setState({ results: [] });
   };
 
   searchMountain(query) {
